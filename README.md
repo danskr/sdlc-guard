@@ -33,7 +33,7 @@ Examples:
 ## Architecture
 
 <p align="center">
-  <img src="docs/images/architecture.png" alt="Architecture image" width="55%">
+  <img src="docs/images/architecture.png" alt="Architecture image" width="45%">
 </p>
 
 ## Repository layout
@@ -73,7 +73,7 @@ Example questions include:
 SDLC-Guard combines deterministic SDLC traceability analysis with semantic retrieval and LLM reasoning.
 
 <p align="center">
-  <img src="docs/images/prompt-flow.png" alt="Prompt flow image" width="55%">
+  <img src="docs/images/prompt-flow.png" alt="Prompt flow image" width="45%">
 </p>
 
 ### Deterministic traceability analysis
