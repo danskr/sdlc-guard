@@ -1,7 +1,4 @@
 # SDLC-Guard
-
-What if evolving project scope could explain itself before it turns into delivery risk?
-
 Maya is the Project Manager, Jack the Business Analyst, and Alex the Solution Architect on a large custom software program. The project started with a reasonably clear scope, but months later the reality looks very different. Requirements keep evolving, new acceptance criteria appear, technical decisions change, implementation gets ahead of documentation, tests lag behind, and technical debt slowly accumulates. Every week, the three of them spend more time trying to answer deceptively simple questions: What exactly is approved? What changed? What is still unclear? Which requirement has no implementation? Which implementation has no requirement? Are the tests still aligned with the current scope? And which parts of the solution are actually ready for release?
 
 Alex starts asking a different question: What if the SDLC itself had a traceability and reasoning layer? A system that continuously connects business requirements, acceptance criteria, technical specifications, source code, tests, NFRs, and implementation evidence—and allows the team to interrogate the evolving project through natural language.
