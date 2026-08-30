@@ -51,19 +51,19 @@ SDLC-Guard architecture is build with the following core design principle:
 
 This is the entry point into SDLC-Guard. Users can interact with the system through the browser-based React UI, direct `curl` requests, or any other client capable of calling the REST API. Questions are expressed in natural language, such as *“Is checkout ready for release?”* or *“Which approved requirements have no implementation?”* The client does not need to know artifact IDs, database structure, or how evidence is stored. Every request is sent to the SDLC-Guard API as a project-analysis question. This layer intentionally keeps the interaction simple while hiding the internal orchestration, traceability, retrieval, and reasoning mechanisms.
 
-### SDLC-Guard — FastAPI + LangGraph
+### SDLC-Guard: FastAPI + LangGraph
 
 SDLC-Guard is the central orchestration and analysis service. FastAPI exposes the HTTP endpoints used by the UI and command-line clients, while LangGraph coordinates the internal analysis workflow. The service first classifies the user's intent and determines whether the question concerns test coverage, implementation completeness, consistency, orphan code, NFR validation, release readiness, or general semantic analysis. It then invokes the appropriate deterministic analyzers against the traceability model. In parallel, or as required, it retrieves semantically relevant artifacts from RAGFlow. LangGraph coordinates these steps and assembles the evidence that will be presented to the reasoning model. This component therefore acts as the control plane connecting deterministic SDLC analysis, semantic retrieval, and LLM reasoning.
 
-### RAGFlow — Semantic Retrieval
+### RAGFlow: Semantic Retrieval
 
 RAGFlow provides the semantic retrieval layer. It indexes SDLC artifacts and connected source or test content as embedded documents, allowing evidence to be found based on meaning rather than exact identifiers or keywords. For example, a question about payment timeout recovery can retrieve the corresponding technical specification, acceptance criteria, implementation, and tests even if the user does not mention their artifact IDs. Retrieval results include relevant chunks and similarity scores. These chunks are treated as evidence rather than authoritative structural facts. RAGFlow therefore complements the explicit PostgreSQL traceability graph by surfacing context that may not be discoverable through direct relationships alone. Its primary role is to broaden the evidence available to SDLC-Guard when answering natural-language questions.
 
-### PostgreSQL — Traceability Graph / Model
+### PostgreSQL: Traceability Graph / Model
 
 PostgreSQL stores the deterministic traceability model of the project. It represents artifacts such as requirements, user stories, acceptance criteria, technical specifications, source-code components, tests, NFRs, and observations together with their explicit relationships. This allows SDLC-Guard to answer structural questions without relying on probabilistic LLM interpretation. For example, it can determine whether an approved requirement has no linked implementation, whether code exists without an approved upstream requirement, or whether an NFR has no verification artifact. The traceability model is also used to identify contradictions and release-readiness blockers. PostgreSQL therefore serves as the authoritative source for explicit SDLC relationships and completeness checks. This deterministic layer is one of the key differences between SDLC-Guard and a conventional RAG-only system.
 
-### OpenAI — Reasoning
+### OpenAI: Reasoning
 
 OpenAI provides the reasoning and explanation layer. The model receives the original question together with deterministic findings from PostgreSQL and semantic evidence retrieved from RAGFlow. Its role is not to invent the project structure or decide whether a relationship exists. Instead, it interprets the supplied evidence, connects related findings, explains their impact, and produces a natural-language response. It can also suggest remediation steps and identify practical delivery risks implied by the evidence. Because the model reasons over evidence collected by the previous stages, its answers remain grounded in the actual project artifacts. This creates a clear separation between deterministic facts and probabilistic reasoning.
 
