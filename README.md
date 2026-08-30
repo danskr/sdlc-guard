@@ -32,6 +32,11 @@ Examples:
 
 ## Architecture
 
+SDLC-Guard architecture is build with the following core design principle:
+
+> **Deterministic software establishes structural SDLC facts, semantic retrieval finds supporting context, and the LLM explains the implications.**
+
+
 <p align="center">
   <img src="docs/images/architecture.png" alt="Architecture image" width="45%">
 </p>
@@ -60,49 +65,27 @@ OpenAI provides the reasoning and explanation layer. The model receives the orig
 
 Grounded findings are the final analysis result returned to the user. A response may include an overall conclusion, categorized findings, severity levels, affected artifacts, recommendations, and supporting evidence. Findings can originate from deterministic analyzers, semantic evidence, or a combination of both. For example, PostgreSQL may establish that `TECH-PAYMENT-001` has no linked implementation, while RAGFlow retrieves the specification and source-code context explaining what functionality is actually missing. The LLM then turns those facts into an understandable explanation of the delivery risk. The result can therefore be inspected rather than treated as an opaque AI answer. In the browser UI, the output is separated into **Analysis**, **Findings**, and **Evidence** views so users can trace conclusions back to their sources.
 
----
-
-# Ingestion Pipeline
-
-The ingestion pipeline prepares project information for both deterministic and semantic analysis. It runs before interactive analysis and converts the SDLC corpus into the two complementary representations used by SDLC-Guard. One branch builds the explicit PostgreSQL traceability model, while the other creates semantic documents and embeddings in RAGFlow. The same underlying artifacts therefore feed both analysis mechanisms. This keeps structural traceability and semantic retrieval synchronized around the same project scope. The pipeline can be rerun whenever requirements, specifications, source mappings, or tests change. In a larger implementation, this process could eventually be triggered continuously from repositories, requirements-management tools, CI/CD systems, or document platforms.
-
-## Artifacts + Sample Source + Tests
+### Artifacts + Sample Source + Tests
 
 This is the raw project corpus consumed by the ingestion pipeline. In the showcase project it includes business specifications, user stories, acceptance criteria, technical specifications, API definitions, architecture artifacts, NFRs, source-code metadata, test specifications, observations, and actual connected source/test files. Each artifact has structured metadata describing its type, status, relationships, and supporting information. Source and test artifacts can also reference real files from the sample ecommerce application. This allows SDLC-Guard to reason over both formal project documentation and actual implementation evidence. The demo corpus intentionally contains inconsistencies, missing implementations, missing tests, orphan code, and unverified NFRs so that the analysis capabilities can be demonstrated.
 
-## Ingestion → RAGFlow
+### Ingestion → RAGFlow
 
 The RAGFlow branch transforms the SDLC corpus into documents suitable for semantic retrieval. Each artifact is converted into a representation containing its metadata and textual content. For source and test artifacts, the ingestion process also includes the corresponding source-file content so retrieval can reason about the actual implementation rather than metadata alone. The documents are uploaded into the `sdlc-guard-ecommerce-demo` RAGFlow dataset and processed using the configured embedding model. Once parsing and embedding complete, the documents become searchable through RAGFlow's retrieval API. This semantic index is what allows SDLC-Guard to find relevant evidence for broad natural-language questions.
 
-## Ingestion → PostgreSQL
+### Ingestion → PostgreSQL
 
 The PostgreSQL branch converts the structured SDLC artifact definitions into the deterministic traceability model. Artifact identifiers, artifact types, statuses, properties, and explicit relationships are stored so that the system can query the project graph directly. This model supports repeatable checks such as missing implementation coverage, missing test coverage, orphan implementations, NFR validation, and release-readiness analysis. Because these checks operate on explicit relationships, the same input always produces the same structural result. The database is rebuilt or refreshed during ingestion so it remains aligned with the latest artifact corpus. PostgreSQL therefore provides the factual backbone against which semantic evidence and LLM reasoning are evaluated.
 
----
 
-# Overall Flow
+### Overall Flow
 
 The architecture deliberately combines **three different kinds of capability**:
 
-### PostgreSQL answers
-
-> What is explicitly connected, missing, inconsistent, or unverified?
-
-### RAGFlow answers
-
-> What project evidence is semantically relevant to this question?
-
-### OpenAI answers
-
-> What do these facts and pieces of evidence mean for the project?
-
-### LangGraph coordinates all three
-
-LangGraph orchestrates the flow between deterministic analysis, semantic retrieval, and LLM reasoning.
-
-The core design principle behind SDLC-Guard is:
-
-> **Deterministic software establishes structural SDLC facts, semantic retrieval finds supporting context, and the LLM explains the implications.**
+> PostgreSQL answers: What is explicitly connected, missing, inconsistent, or unverified?
+> RAGFlow answers: What project evidence is semantically relevant to this question?
+> OpenAI answers: What do these facts and pieces of evidence mean for the project?
+> LangGraph orchestrates the flow between deterministic analysis, semantic retrieval, and LLM reasoning.
 
 ## Repository layout
 
