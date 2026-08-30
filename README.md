@@ -25,37 +25,9 @@ Examples:
 
 ## Architecture
 
-```text
-                           SDLC-Guard
-
- User / curl / UI
-       |
-       v
- +-------------------+
- |    SDLC-Guard     |
- | FastAPI+LangGraph |
- +---------+---------+
-           |
-     +-----+----------------------+----------------+
-     |                            |                |
-     v                            v                v
- RAGFlow                    PostgreSQL         OpenAI
- semantic                   traceability       reasoning
- retrieval                  graph/model
-     |                            |
-     +-------------+--------------+
-                   |
-                   v
-           grounded findings
-
- Ingestion pipeline
- artifacts/ + sample source + tests
-                   |
-             +-----+-----+
-             |           |
-             v           v
-          RAGFlow     PostgreSQL
-```
+<p align="center">
+  <img src="docs/images/architecture.png" alt="Architecture image" width="65%">
+</p>
 
 ## Repository layout
 
@@ -93,21 +65,9 @@ Example questions include:
 
 SDLC-Guard combines deterministic SDLC traceability analysis with semantic retrieval and LLM reasoning.
 
-    Natural-language question
-              |
-              v
-           LangGraph
-           /       \
-          v         v
-    PostgreSQL    RAGFlow
-    Traceability  Semantic retrieval
-          \         /
-           \       /
-            v     v
-            OpenAI
-              |
-              v
-    Evidence-grounded analysis
+<p align="center">
+  <img src="docs/images/prompt-flow.png" alt="Prompt flow image" width="65%">
+</p>
 
 ### Deterministic traceability analysis
 
