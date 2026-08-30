@@ -8,7 +8,7 @@ Maya is the Project Manager, Jack the Business Analyst, and Alex the Solution Ar
 - Are the tests still aligned with the current scope?
 - And which parts of the solution are actually ready for release?
 
-Alex is becoming increasingly convinced that the SDLC itself needs a dedicated traceability and reasoning layer. A system that continuously connects business requirements, acceptance criteria, technical specifications, source code, tests, NFRs, and implementation evidence—and allows the team to interrogate the evolving project through natural language.
+Maya is becoming increasingly convinced that the SDLC itself needs a dedicated traceability and reasoning layer. A system that continuously connects business requirements, acceptance criteria, technical specifications, source code, tests, NFRs, and implementation evidence—and allows the team to interrogate the evolving project through natural language.
 
 <p align="center">
   <img src="docs/images/cover.png" alt="Cover image" width="55%">
