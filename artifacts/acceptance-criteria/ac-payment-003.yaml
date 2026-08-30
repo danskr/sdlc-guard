@@ -1,0 +1,12 @@
+artifact_id: AC-PAYMENT-003
+project_id: ecommerce-demo
+artifact_type: acceptance_criterion
+title: Idempotent checkout payment
+content: Two checkout submissions with the same idempotency key must result in at
+  most one payment authorization and one order.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+relationships:
+  derived_from:
+  - US-PAYMENT-001

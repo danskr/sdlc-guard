@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sdlc-guard-config
+  namespace: sdlc-guard
+data:
+  OPENAI_MODEL: gpt-5-mini
+  RAGFLOW_BASE_URL: http://ragflow.ragflow.svc.cluster.local
+  RAGFLOW_DATASET_NAME: sdlc-guard-ecommerce-demo
+  RAGFLOW_REQUIRED: "true"

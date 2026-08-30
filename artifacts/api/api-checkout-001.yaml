@@ -1,0 +1,14 @@
+artifact_id: API-CHECKOUT-001
+project_id: ecommerce-demo
+artifact_type: api_contract
+title: Checkout API contract
+content: POST /api/v1/checkout accepts cart_id, payment_method, amount, and idempotency_key.
+  The current implementation also requires X-User-Id even though business scope permits
+  guest card checkout.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT
+relationships:
+  refines:
+  - TECH-AUTH-001
+  - TECH-PAYMENT-001

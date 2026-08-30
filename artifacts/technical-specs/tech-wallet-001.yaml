@@ -1,0 +1,12 @@
+artifact_id: TECH-WALLET-001
+project_id: ecommerce-demo
+artifact_type: technical_spec
+title: Wallet two-phase debit
+content: Wallet integration exposes reserve, capture, and release operations. Direct
+  debit during checkout is forbidden because the order transaction may still fail.
+status: approved
+version: '1'
+feature_id: FEATURE-WALLET
+relationships:
+  refines:
+  - AC-WALLET-001

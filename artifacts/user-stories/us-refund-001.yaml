@@ -1,0 +1,9 @@
+artifact_id: US-REFUND-001
+project_id: ecommerce-demo
+artifact_type: user_story
+title: Partial refund
+content: As a support operator, I can issue a partial refund for a captured order
+  without refunding the whole order.
+status: approved
+version: '1'
+feature_id: FEATURE-REFUND

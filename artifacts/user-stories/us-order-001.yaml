@@ -1,0 +1,9 @@
+artifact_id: US-ORDER-001
+project_id: ecommerce-demo
+artifact_type: user_story
+title: Order confirmation
+content: As a shopper, I receive an order confirmation only after payment authorization
+  or wallet capture succeeds.
+status: approved
+version: '1'
+feature_id: FEATURE-ORDER

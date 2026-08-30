@@ -1,0 +1,12 @@
+artifact_id: BUS-REFUND-001
+project_id: ecommerce-demo
+artifact_type: business_spec
+title: Refund rules
+content: Operators may refund any positive amount up to the remaining captured amount.
+  Multiple partial refunds are permitted until the captured amount is exhausted.
+status: approved
+version: '1'
+feature_id: FEATURE-REFUND
+relationships:
+  derived_from:
+  - US-REFUND-001

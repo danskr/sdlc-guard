@@ -1,0 +1,9 @@
+artifact_id: NFR-SEC-001
+project_id: ecommerce-demo
+artifact_type: nfr
+title: Payment data minimization
+content: The application must not persist PAN, CVV, or raw payment credentials. Only
+  provider tokens and non-sensitive transaction identifiers may be stored.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT

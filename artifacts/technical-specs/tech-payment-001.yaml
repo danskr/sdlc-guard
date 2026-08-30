@@ -1,0 +1,12 @@
+artifact_id: TECH-PAYMENT-001
+project_id: ecommerce-demo
+artifact_type: technical_spec
+title: Payment idempotency persistence
+content: Checkout must persist idempotency_key before calling the external payment
+  gateway. A repeated key returns the original result and never re-authorizes.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+relationships:
+  refines:
+  - AC-PAYMENT-003

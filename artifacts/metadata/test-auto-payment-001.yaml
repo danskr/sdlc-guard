@@ -1,0 +1,14 @@
+artifact_id: TEST-AUTO-PAYMENT-001
+project_id: ecommerce-demo
+artifact_type: automated_test
+title: Automated card checkout tests
+content: pytest TestClient tests cover successful card checkout and card decline.
+  No idempotency, timeout, refund, performance, or wallet audit tests are present.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+source_path: sample-project/ecommerce/backend/tests/test_payment.py
+relationships:
+  verifies:
+  - AC-PAYMENT-001
+  - AC-PAYMENT-002

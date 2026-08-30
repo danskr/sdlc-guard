@@ -1,0 +1,14 @@
+artifact_id: OBS-WALLET-001
+project_id: ecommerce-demo
+artifact_type: observation
+title: Wallet implementation mismatch
+content: Code review shows SRC-WALLET-001 performs immediate debit whereas AC-WALLET-001
+  and TECH-WALLET-001 require reserve/capture/release.
+status: approved
+version: '1'
+feature_id: FEATURE-WALLET
+relationships:
+  conflicts_with:
+  - SRC-WALLET-001
+  - AC-WALLET-001
+  - TECH-WALLET-001

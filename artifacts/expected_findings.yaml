@@ -1,0 +1,56 @@
+project_id: ecommerce-demo
+expected_findings:
+- id: GF-001
+  type: scope_inconsistency
+  severity: high
+  artifacts:
+  - US-CHECKOUT-001
+  - TECH-AUTH-001
+  summary: Guest checkout business scope conflicts with mandatory authentication technical
+    requirement.
+- id: GF-002
+  type: missing_implementation
+  severity: high
+  artifacts:
+  - AC-PAYMENT-003
+  - TECH-PAYMENT-001
+  summary: Payment idempotency is required but not implemented.
+- id: GF-003
+  type: missing_test_coverage
+  severity: high
+  artifacts:
+  - AC-PAYMENT-004
+  summary: Gateway timeout behavior has no test.
+- id: GF-004
+  type: implementation_mismatch
+  severity: high
+  artifacts:
+  - AC-WALLET-001
+  - TECH-WALLET-001
+  - SRC-WALLET-001
+  summary: Wallet requires reserve/capture/release but code immediately debits.
+- id: GF-005
+  type: missing_implementation
+  severity: high
+  artifacts:
+  - AC-REFUND-001
+  - TECH-REFUND-001
+  summary: Partial refund approved but no source implementation exists.
+- id: GF-006
+  type: orphan_implementation
+  severity: medium
+  artifacts:
+  - SRC-PROMO-001
+  summary: Promo-code source exists without approved scope.
+- id: GF-007
+  type: unverified_nfr
+  severity: high
+  artifacts:
+  - NFR-PERF-001
+  summary: Checkout performance NFR has no performance verification.
+- id: GF-008
+  type: unverified_nfr
+  severity: high
+  artifacts:
+  - NFR-AUDIT-001
+  summary: Wallet audit NFR has no verification.

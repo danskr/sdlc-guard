@@ -1,0 +1,23 @@
+project_id: ecommerce-demo
+name: SDLC-Guard E-commerce Demo
+description: Seed corpus for SDLC-Guard. Contains intentional SDLC gaps and inconsistencies.
+artifact_count: 37
+artifact_types:
+- acceptance_criterion
+- api_contract
+- architecture
+- automated_test
+- business_spec
+- nfr
+- observation
+- source_code
+- technical_spec
+- test_spec
+- user_story
+features:
+- FEATURE-CHECKOUT
+- FEATURE-PAYMENT
+- FEATURE-WALLET
+- FEATURE-REFUND
+- FEATURE-ORDER
+- FEATURE-PROMOTION

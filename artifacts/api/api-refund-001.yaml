@@ -1,0 +1,12 @@
+artifact_id: API-REFUND-001
+project_id: ecommerce-demo
+artifact_type: api_contract
+title: Refund API contract
+content: POST /api/v1/refunds/partial accepts payment_id and amount and returns refund_id,
+  refunded_amount, and remaining_refundable_amount.
+status: approved
+version: '1'
+feature_id: FEATURE-REFUND
+relationships:
+  refines:
+  - TECH-REFUND-001

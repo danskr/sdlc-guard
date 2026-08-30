@@ -1,0 +1,10 @@
+artifact_id: SRC-PROMO-001
+project_id: ecommerce-demo
+artifact_type: source_code
+title: Promotion code implementation
+content: apply_promo implements SAVE10 discount behavior even though no approved user
+  story, business spec, acceptance criterion, or technical specification defines promotions.
+status: approved
+version: '1'
+feature_id: FEATURE-PROMOTION
+source_path: sample-project/ecommerce/backend/app/promotions.py

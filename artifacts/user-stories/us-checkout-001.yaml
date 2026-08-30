@@ -1,0 +1,13 @@
+artifact_id: US-CHECKOUT-001
+project_id: ecommerce-demo
+artifact_type: user_story
+title: Guest checkout
+content: As a shopper, I can complete checkout without creating or signing into an
+  account so that purchase friction is minimized. Guest users must be able to pay
+  by card.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT
+relationships:
+  conflicts_with:
+  - TECH-AUTH-001

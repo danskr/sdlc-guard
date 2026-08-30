@@ -1,0 +1,14 @@
+artifact_id: SRC-PAYMENT-001
+project_id: ecommerce-demo
+artifact_type: source_code
+title: Card payment adapter
+content: authorize_card returns declined for demo amounts >= 500 and authorized with
+  payment_id otherwise.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+source_path: sample-project/ecommerce/backend/app/payment.py
+relationships:
+  implements:
+  - AC-PAYMENT-001
+  - AC-PAYMENT-002

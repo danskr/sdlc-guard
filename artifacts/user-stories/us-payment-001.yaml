@@ -1,0 +1,9 @@
+artifact_id: US-PAYMENT-001
+project_id: ecommerce-demo
+artifact_type: user_story
+title: Card payment checkout
+content: As a shopper, I can pay for an order with a payment card and receive a clear
+  authorization result.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT

@@ -1,0 +1,12 @@
+artifact_id: BUS-WALLET-001
+project_id: ecommerce-demo
+artifact_type: business_spec
+title: Wallet settlement behavior
+content: Wallet payment must reserve the requested amount during checkout. The reservation
+  is captured only after the order is committed. Failed orders must release the reservation.
+status: approved
+version: '1'
+feature_id: FEATURE-WALLET
+relationships:
+  derived_from:
+  - US-WALLET-001

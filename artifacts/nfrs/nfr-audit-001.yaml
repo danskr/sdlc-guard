@@ -1,0 +1,9 @@
+artifact_id: NFR-AUDIT-001
+project_id: ecommerce-demo
+artifact_type: nfr
+title: Wallet failure audit trail
+content: Every wallet reserve, capture, release, and failure must emit an audit event
+  containing correlation ID, user ID, order/cart ID, operation, outcome, and timestamp.
+status: approved
+version: '1'
+feature_id: FEATURE-WALLET

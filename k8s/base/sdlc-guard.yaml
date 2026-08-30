@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdlc-guard
+  namespace: sdlc-guard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sdlc-guard
+  template:
+    metadata:
+      labels:
+        app: sdlc-guard
+    spec:
+      containers:
+        - name: sdlc-guard
+          image: sdlc-guard:0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: sdlc-guard-config
+            - secretRef:
+                name: sdlc-guard-secrets
+            - secretRef:
+                name: traceability-postgres-secret
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          resources:
+            requests:
+              cpu: 100m
+              memory: 192Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdlc-guard
+  namespace: sdlc-guard
+spec:
+  selector:
+    app: sdlc-guard
+  ports:
+    - port: 8080
+      targetPort: 8080

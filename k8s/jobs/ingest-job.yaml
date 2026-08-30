@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sdlc-guard-ingest
+  namespace: sdlc-guard
+spec:
+  backoffLimit: 1
+  template:
+    metadata:
+      labels:
+        app: sdlc-guard-ingest
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: ingest
+          image: sdlc-guard:0.1.0
+          imagePullPolicy: IfNotPresent
+          command: ["python", "-m", "sdlc_guard.ingest"]
+          args: ["--artifacts", "/workspace/artifacts", "--workspace", "/workspace"]
+          envFrom:
+            - configMapRef:
+                name: sdlc-guard-config
+            - secretRef:
+                name: sdlc-guard-secrets
+            - secretRef:
+                name: traceability-postgres-secret

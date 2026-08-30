@@ -1,0 +1,72 @@
+# DEMO ONLY: fixed local-development credentials.
+# Do not use these credentials in a production deployment.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: traceability-postgres-secret
+  namespace: sdlc-guard
+type: Opaque
+stringData:
+  POSTGRES_DB: sdlcguard
+  POSTGRES_USER: sdlcguard
+  POSTGRES_PASSWORD: sdlcguard-demo-password
+  DATABASE_URL: postgresql+psycopg://sdlcguard:sdlcguard-demo-password@traceability-postgres.sdlc-guard.svc.cluster.local:5432/sdlcguard
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: traceability-postgres-data
+  namespace: sdlc-guard
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traceability-postgres
+  namespace: sdlc-guard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traceability-postgres
+  template:
+    metadata:
+      labels:
+        app: traceability-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:17-alpine
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: traceability-postgres-secret
+          readinessProbe:
+            exec:
+              command: ["sh", "-c", "pg_isready -U sdlcguard -d sdlcguard"]
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: traceability-postgres-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traceability-postgres
+  namespace: sdlc-guard
+spec:
+  selector:
+    app: traceability-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432

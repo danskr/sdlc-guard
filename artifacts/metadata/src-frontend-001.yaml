@@ -1,0 +1,14 @@
+artifact_id: SRC-FRONTEND-001
+project_id: ecommerce-demo
+artifact_type: source_code
+title: Checkout web frontend
+content: React/TypeScript UI submits card or wallet checkout requests to /api/v1/checkout
+  and always sends a demo user identity.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT
+source_path: sample-project/ecommerce/frontend/src/main.tsx
+relationships:
+  implements:
+  - US-PAYMENT-001
+  - US-WALLET-001

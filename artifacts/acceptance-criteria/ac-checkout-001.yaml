@@ -1,0 +1,13 @@
+artifact_id: AC-CHECKOUT-001
+project_id: ecommerce-demo
+artifact_type: acceptance_criterion
+title: Guest can complete card checkout
+content: Given a valid cart and card payment method, when an anonymous guest submits
+  checkout, then the order can proceed without an authenticated user identity.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT
+relationships:
+  derived_from:
+  - US-CHECKOUT-001
+  - BUS-CHECKOUT-001

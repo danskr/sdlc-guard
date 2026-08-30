@@ -1,0 +1,12 @@
+artifact_id: TECH-ORDER-001
+project_id: ecommerce-demo
+artifact_type: technical_spec
+title: Order state transition
+content: Order state transitions from CHECKOUT_PENDING to CONFIRMED only after payment
+  success. Decline leaves the order unpaid.
+status: approved
+version: '1'
+feature_id: FEATURE-ORDER
+relationships:
+  refines:
+  - AC-ORDER-001

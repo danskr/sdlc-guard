@@ -1,0 +1,13 @@
+artifact_id: SRC-WALLET-001
+project_id: ecommerce-demo
+artifact_type: source_code
+title: Wallet direct debit adapter
+content: debit_wallet immediately debits the wallet. It does not implement reserve,
+  capture, or release semantics required by approved scope.
+status: approved
+version: '1'
+feature_id: FEATURE-WALLET
+source_path: sample-project/ecommerce/backend/app/wallet.py
+relationships:
+  implements:
+  - US-WALLET-001

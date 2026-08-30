@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sdlc-guard"
+version = "0.1.0"
+description = "SDLC-Guard analysis agent"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.116,<1",
+  "uvicorn[standard]>=0.35,<1",
+  "pydantic>=2.11,<3",
+  "pydantic-settings>=2.10,<3",
+  "sqlalchemy>=2.0.40,<3",
+  "psycopg[binary]>=3.2,<4",
+  "httpx>=0.28,<1",
+  "PyYAML>=6.0,<7",
+  "langgraph>=1.2,<2",
+  "langchain-openai>=1.0,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.4,<9"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

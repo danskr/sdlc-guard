@@ -1,0 +1,12 @@
+artifact_id: AC-ORDER-001
+project_id: ecommerce-demo
+artifact_type: acceptance_criterion
+title: Order confirmation after payment
+content: Order confirmation is created only after a successful card authorization
+  or successful wallet capture.
+status: approved
+version: '1'
+feature_id: FEATURE-ORDER
+relationships:
+  derived_from:
+  - US-ORDER-001

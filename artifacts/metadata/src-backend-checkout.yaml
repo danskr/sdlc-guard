@@ -1,0 +1,17 @@
+artifact_id: SRC-BACKEND-CHECKOUT
+project_id: ecommerce-demo
+artifact_type: source_code
+title: Backend checkout endpoint
+content: FastAPI checkout endpoint requires X-User-Id, accepts idempotency_key but
+  does not persist or check it, then routes to card authorization or direct wallet
+  debit.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT
+source_path: sample-project/ecommerce/backend/app/main.py
+relationships:
+  implements:
+  - TECH-AUTH-001
+  - AC-PAYMENT-001
+  - AC-PAYMENT-002
+  - AC-ORDER-001

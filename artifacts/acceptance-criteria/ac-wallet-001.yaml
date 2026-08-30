@@ -1,0 +1,13 @@
+artifact_id: AC-WALLET-001
+project_id: ecommerce-demo
+artifact_type: acceptance_criterion
+title: Wallet reserve then capture
+content: Wallet funds are reserved during checkout and captured only after order commit;
+  checkout failure releases the reservation.
+status: approved
+version: '1'
+feature_id: FEATURE-WALLET
+relationships:
+  derived_from:
+  - US-WALLET-001
+  - BUS-WALLET-001

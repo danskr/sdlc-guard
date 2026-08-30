@@ -1,0 +1,14 @@
+artifact_id: BUS-CHECKOUT-001
+project_id: ecommerce-demo
+artifact_type: business_spec
+title: Checkout eligibility
+content: Checkout is available to both anonymous guests and authenticated customers.
+  Authentication may improve convenience but must not block card checkout.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT
+relationships:
+  derived_from:
+  - US-CHECKOUT-001
+  conflicts_with:
+  - TECH-AUTH-001

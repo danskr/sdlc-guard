@@ -1,0 +1,35 @@
+project:
+  name: SDLC-Guard
+  version: 0.1.0
+  primary_agent: SDLC-Guard
+  license: Apache-2.0
+  demo_domain: e-commerce
+  purpose: Cross-SDLC traceability, gap analysis, consistency analysis, implementation/test coverage, and grounded reasoning.
+components:
+  agent:
+    language: Python
+    framework: FastAPI + LangGraph
+  rag:
+    product: RAGFlow
+    pinned_version: v0.26.4
+  reasoning:
+    provider: OpenAI
+    default_model: gpt-5-mini
+  traceability_store:
+    product: PostgreSQL
+  demo_frontend:
+    language: TypeScript
+    runtime: React + Vite + Nginx
+  demo_backend:
+    language: Python
+    framework: FastAPI
+corpus:
+  artifact_count: 37
+  relationship_count: 45
+  rag_documents: 37
+  intentional_ground_truth_findings: 8
+runtime:
+  target: Kubernetes on x86-64 Ubuntu VM
+  namespaces:
+    - ragflow
+    - sdlc-guard

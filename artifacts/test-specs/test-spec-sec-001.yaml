@@ -1,0 +1,12 @@
+artifact_id: TEST-SPEC-SEC-001
+project_id: ecommerce-demo
+artifact_type: test_spec
+title: Payment data minimization inspection
+content: Static review verifies that demo code passes amount and identifiers only
+  and does not persist PAN or CVV.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+relationships:
+  verifies:
+  - NFR-SEC-001

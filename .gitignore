@@ -1,0 +1,27 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+coverage.xml
+htmlcov/
+
+# Node / frontend
+node_modules/
+dist/
+
+# Local archives and backups
+*.tar
+*.tgz
+*.zip
+*.bak
+
+# OS files
+.DS_Store
+*.tsbuildinfo
+*.egg-info/

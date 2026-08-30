@@ -1,0 +1,13 @@
+artifact_id: TEST-SPEC-PAYMENT-001
+project_id: ecommerce-demo
+artifact_type: test_spec
+title: Card authorization test specification
+content: Verify successful authorization for a low-value card checkout and decline
+  behavior for an amount configured to trigger issuer decline.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+relationships:
+  verifies:
+  - AC-PAYMENT-001
+  - AC-PAYMENT-002

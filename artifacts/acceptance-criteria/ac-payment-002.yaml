@@ -1,0 +1,12 @@
+artifact_id: AC-PAYMENT-002
+project_id: ecommerce-demo
+artifact_type: acceptance_criterion
+title: Card decline is surfaced
+content: An issuer decline is returned as a non-successful payment result and does
+  not produce a paid order.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+relationships:
+  derived_from:
+  - US-PAYMENT-001

@@ -1,0 +1,8 @@
+artifact_id: US-WALLET-001
+project_id: ecommerce-demo
+artifact_type: user_story
+title: Wallet payment checkout
+content: As an authenticated shopper, I can pay using my stored wallet balance.
+status: approved
+version: '1'
+feature_id: FEATURE-WALLET

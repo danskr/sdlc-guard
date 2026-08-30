@@ -1,0 +1,10 @@
+artifact_id: ARCH-001
+project_id: ecommerce-demo
+artifact_type: architecture
+title: E-commerce service architecture
+content: The demo contains a React/TypeScript frontend and a FastAPI backend. Checkout
+  calls either a card payment adapter or wallet adapter. SDLC-Guard treats these files
+  as analyzed delivery artifacts rather than as its own runtime dependencies.
+status: approved
+version: '1'
+feature_id: FEATURE-PLATFORM

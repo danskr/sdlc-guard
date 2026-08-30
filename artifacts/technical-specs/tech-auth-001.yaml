@@ -1,0 +1,16 @@
+artifact_id: TECH-AUTH-001
+project_id: ecommerce-demo
+artifact_type: technical_spec
+title: Authenticated checkout requirement
+content: The checkout API requires the X-User-Id header for all payment methods. Requests
+  without a user identity return HTTP 401.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT
+relationships:
+  refines:
+  - US-CHECKOUT-001
+  conflicts_with:
+  - US-CHECKOUT-001
+  - BUS-CHECKOUT-001
+  - AC-CHECKOUT-001

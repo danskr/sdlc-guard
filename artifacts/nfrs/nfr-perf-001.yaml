@@ -1,0 +1,9 @@
+artifact_id: NFR-PERF-001
+project_id: ecommerce-demo
+artifact_type: nfr
+title: Checkout throughput
+content: The checkout API must sustain 500 requests per second for five minutes with
+  p95 latency below 400 ms and error rate below 1 percent.
+status: approved
+version: '1'
+feature_id: FEATURE-CHECKOUT

@@ -1,0 +1,12 @@
+artifact_id: TECH-PAYMENT-002
+project_id: ecommerce-demo
+artifact_type: technical_spec
+title: Timeout reconciliation
+content: Gateway timeouts are persisted as pending_reconciliation and resolved asynchronously
+  using provider transaction lookup before the client is allowed to retry.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+relationships:
+  refines:
+  - AC-PAYMENT-004

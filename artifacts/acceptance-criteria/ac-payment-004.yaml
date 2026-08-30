@@ -1,0 +1,12 @@
+artifact_id: AC-PAYMENT-004
+project_id: ecommerce-demo
+artifact_type: acceptance_criterion
+title: Gateway timeout handling
+content: If the payment gateway times out, the checkout must enter a reconciliation-safe
+  pending state and retries must not create duplicate authorizations.
+status: approved
+version: '1'
+feature_id: FEATURE-PAYMENT
+relationships:
+  derived_from:
+  - US-PAYMENT-001

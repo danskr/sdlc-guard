@@ -1,0 +1,12 @@
+artifact_id: TECH-REFUND-001
+project_id: ecommerce-demo
+artifact_type: technical_spec
+title: Partial refund API
+content: Backend exposes POST /api/v1/refunds/partial with payment_id and amount.
+  It validates the remaining refundable balance before invoking the payment provider.
+status: approved
+version: '1'
+feature_id: FEATURE-REFUND
+relationships:
+  refines:
+  - AC-REFUND-001

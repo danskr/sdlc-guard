@@ -1,0 +1,13 @@
+artifact_id: AC-REFUND-001
+project_id: ecommerce-demo
+artifact_type: acceptance_criterion
+title: Partial refund endpoint
+content: A support operator can submit a partial refund amount less than or equal
+  to the remaining refundable captured amount and receive a refund identifier.
+status: approved
+version: '1'
+feature_id: FEATURE-REFUND
+relationships:
+  derived_from:
+  - US-REFUND-001
+  - BUS-REFUND-001
