@@ -1,6 +1,16 @@
 # SDLC-Guard
 
-SDLC-Guard is a showcase platform and analysis agent for reasoning across software-delivery artifacts. The product and its runtime analysis service intentionally use the same name: **SDLC-Guard**. It combines:
+What if evolving project scope could explain itself before it turns into delivery risk?
+
+🙋🏽 Maya is the Project Manager, Elena the Business Analyst, and Alex the Solution Architect on a large custom software program. The project started with a reasonably clear scope, but months later the reality looks very different. Requirements keep evolving, new acceptance criteria appear, technical decisions change, implementation gets ahead of documentation, tests lag behind, and technical debt slowly accumulates. Every week, the three of them spend more time trying to answer deceptively simple questions: What exactly is approved? What changed? What is still unclear? Which requirement has no implementation? Which implementation has no requirement? Are the tests still aligned with the current scope? And which parts of the solution are actually ready for release?
+
+💁🏽 Alex starts asking a different question: What if the SDLC itself had a traceability and reasoning layer? A system that continuously connects business requirements, acceptance criteria, technical specifications, source code, tests, NFRs, and implementation evidence—and allows the team to interrogate the evolving project through natural language.
+
+<p align="center">
+  <img src="docs/images/cover.png" alt="Cover image" width="55%">
+</p>
+
+🚀 SDLC-Guard is an experimental architecture built around that idea. It combines deterministic traceability analysis with semantic retrieval and LLM reasoning. SDLC artifacts and connected source/test files are ingested into PostgreSQL and RAGFlow, while LangGraph orchestrates analysis of questions such as “Is checkout ready for release?”, “Which approved capabilities have no implementation?”, or “Is there source code that has no approved requirement?” It combines:
 
 1. RAGFlow semantic retrieval for evidence discovery.
 2. A PostgreSQL traceability store for deterministic completeness checks.
